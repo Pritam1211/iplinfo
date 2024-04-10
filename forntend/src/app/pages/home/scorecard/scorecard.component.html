@@ -1,0 +1,91 @@
+<div class="scorecard">
+  <div class="tabs">
+    <a [routerLink]="['/live-score', scoreCard.id]" class="tab">
+      <span>Live Score</span>
+    </a>
+    <a [routerLink]="['/scorecard', scoreCard.id, 'inning1']" [class]="'tab' + (inning == 'inning1' ? ' active' : '')">
+      <span>Inning 1</span>
+    </a>
+    <a [routerLink]="['/scorecard', scoreCard.id, 'inning2']" [class]="'tab' + (inning == 'inning2' ? ' active' : '')">
+      <span>Inning 2</span>
+    </a>
+  </div>
+  <div class="status">{{scoreCard.status}}</div>
+  <div class='score-header'>
+    <span>{{scoreCard[inning].battingTeam}}</span>
+    <span>{{scoreCard[inning].score}}</span>
+  </div>
+
+  <div class="bating" *ngIf="scoreCard[inning].batting.length">
+    <h3>Batting</h3>
+    <table>
+      <tr class="header desktop">
+        <th>Batsman</th>
+        <th>Runs</th>
+        <th>Balls</th>
+        <th>4s</th>
+        <th>6s</th>
+        <th>SR</th>
+      </tr>
+
+      <tr class="header mobile">
+        <th>Batsman</th>
+        <th>R</th>
+        <th>B</th>
+        <th>4</th>
+        <th>6</th>
+        <th>SR</th>
+      </tr>
+
+      <tr *ngFor="let batsman of scoreCard[inning].batting">
+        <td>{{batsman.name}}</td>
+        <td>{{batsman.runs}}</td>
+        <td>{{batsman.balls}}</td>
+        <td>{{batsman.fours}}</td>
+        <td>{{batsman.sixes}}</td>
+        <td>{{batsman.sr}}</td>
+      </tr>
+      <tr>
+        <td>Extras</td>
+        <td colspan="5">{{scoreCard[inning].extras}}</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td colspan="5">{{scoreCard[inning].total}}</td>
+      </tr>
+      <tr>
+        <td>Yet to bat</td>
+        <td colspan="5">{{scoreCard[inning].yetToBat}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="bating bowling" *ngIf="scoreCard[inning].bowling.length">
+    <h3>Bowling</h3>
+    <table>
+      <tr class="header desktop">
+        <th>Bowler</th>
+        <th>Overs</th>
+        <th>Runs</th>
+        <th>Wickets</th>
+        <th>Economy</th>
+      </tr>
+      <tr class="header mobile">
+        <th>Bowler</th>
+        <th>O</th>
+        <th>R</th>
+        <th>W</th>
+        <th>E</th>
+      </tr>
+      <tr class="card" *ngFor="let bowler of scoreCard[inning].bowling">
+        <td>{{bowler.name}}</td>
+        <td>{{bowler.over}}</td>
+        <td>{{bowler.run}}</td>
+        <td>{{bowler.wicket}}</td>
+        <td>{{bowler.eco}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>

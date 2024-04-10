@@ -1,0 +1,23 @@
+<section class="home">
+  <div class="home-header">
+    <h1>Upcoming Matches</h1>
+  </div>
+  <div class="matches">
+    <div class="match" *ngFor="let match of matches" (click)="openMatch(match.id)">
+      <div class="match-header">
+        <span>{{match.number}}</span>
+        <span>{{match.date}}</span>
+      </div>
+      <div class="team" *ngFor="let team of match.teams">
+        <div class="name">
+          <img [src]="team.flag" alt="team1" />
+          <span>{{ team.name }}</span>
+        </div>
+        <div class="score">{{team.score}}</div>
+      </div>
+      <div class="match-footer">
+        {{match.result ? match.result : match.location}}
+      </div>
+    </div>
+  </div>
+</section>

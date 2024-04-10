@@ -1,0 +1,61 @@
+<div class="teams">
+  <form>
+    <select name="selectedTeam" [(ngModel)]="selectedTeam" (ngModelChange)="getTeamMembers()">
+      <option *ngFor="let team of teams" [ngValue]="team">
+        <div class="team">
+          <span>{{team.name}}</span>
+        </div>
+      </option>
+    </select>
+  </form>
+
+  <div *ngIf="team && selectedTeam" class="team">
+    <div class="header">
+      <img [src]="team.flag" alt="team.name">
+      <h1>{{team.name}}</h1>
+    </div>
+
+    <div class="team-card">
+      <h3>Batsman</h3>
+      <div class="box">
+        <div *ngFor="let batsman of team.batsmen" class="card">
+          <img [src]="batsman.photo" alt="batsman.name">
+          <span>{{batsman.name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <h3>Bowler</h3>
+      <div class="box">
+        <div *ngFor="let bowler of team.bowler" class="card">
+          <img [src]="bowler.photo" alt="bowler.name">
+          <span>{{bowler.name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <h3>Allrounder</h3>
+      <div class="box">
+        <div *ngFor="let allrounder of team.all_rounder" class="card">
+          <img [src]="allrounder.photo" alt="allrounder.name">
+          <span>{{allrounder.name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <h3>Wicket Keeper</h3>
+      <div class="box">
+        <div *ngFor="let wicketKeeper of team.wicket_keeper" class="card">
+
+          <img [src]="wicketKeeper.photo" alt="wicketKeeper.name">
+          <span>{{wicketKeeper.name}}</span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

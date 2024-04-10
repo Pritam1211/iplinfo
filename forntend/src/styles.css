@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+:root {
+    --black: #111111;
+    --white: #fdfdfd;
+    --gray: #aaaaaa;
+    --primary: #CC0000;
+    --secondary: #990000;
+    --dark-gray: #222222;
+    --darker-gray: #181818;
+    --medium-gray: #424242;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--black);
+    font-family: "Comic Neue", cursive;
+  font-weight: 400;
+  font-style: normal;
+  height: 100vh;
+  width: 100vw;
+}
+
+app-root {
+    height: 100vw;
+    width: 100vh;
+}

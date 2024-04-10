@@ -1,0 +1,60 @@
+@import "./../../mixins/style.scss";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  .mobile {
+    display: none;
+  }
+
+  td {
+    color: var(--white);
+    padding: 0.7rem 0.5rem;
+    text-align: center;
+  }
+
+  @include desktop {
+
+    tr td:nth-child(2),
+    tr th:nth-child(2) {
+      text-align: left;
+      width: 30%;
+      display: flex;
+      gap: 10px;
+    }
+
+    tr:nth-child(2) {
+      background-color: var(--dark-gray);
+    }
+  }
+
+  th {
+    color: var(--gray);
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  tr {
+    border-bottom: 1px solid var(--dark-gray);
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--darker-gray);
+  }
+
+  @include mobile {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: table-header-group;
+    }
+
+    tr:nth-child(2) {
+      background-color: var(--dark-gray);
+    }
+  }
+
+}

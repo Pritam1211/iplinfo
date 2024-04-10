@@ -1,0 +1,138 @@
+@import "../../../mixins/style.scss";
+
+.scorecard {
+  width: 100%;
+  color: var(--white);
+
+  .tabs {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    float: left;
+    border-bottom: 1px solid var(--medium-gray);
+
+    a {
+      text-decoration: none;
+      color: var(--gray);
+      padding: 1rem;
+    }
+
+    .active {
+      color: var(--primary);
+      background-color: var(--dark-gray);
+    }
+  }
+
+  .status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    color: var(--secondary);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .score-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--dark-gray);
+    margin: 1rem auto;
+    margin-bottom: 0;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+      color: var(--white);
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+    }
+
+    tr td:first-child,
+    tr th:first-child {
+      text-align: left;
+      width: 30%;
+    }
+
+    th {
+      color: var(--gray);
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    tr {
+      border-bottom: 1px solid var(--dark-gray);
+    }
+
+    tr:nth-child(odd) {
+      background-color: var(--darker-gray);
+    }
+
+    tr:first-child {
+      background-color: var(--dark-gray);
+    }
+  }
+
+  .bating {
+    margin-top: 2rem;
+    font-size: 1rem;
+
+    h3 {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+    }
+
+  }
+
+  .bowling {
+    margin-top: 2rem;
+    font-size: 1rem;
+
+    h3 {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+    }
+  }
+
+  @include mobile {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: table-header-group;
+    }
+
+    table {
+      margin-top: 1rem;
+    }
+
+    tr:nth-child(2) {
+      background-color: var(--dark-gray);
+    }
+  }
+
+  @include desktop {
+    tr:first-child {
+      background-color: var(--dark-gray);
+    }
+  }
+}

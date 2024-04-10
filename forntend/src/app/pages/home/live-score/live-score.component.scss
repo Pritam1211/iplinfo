@@ -1,0 +1,195 @@
+@import "../../../mixins/style.scss";
+
+.livescore {
+  width: 100%;
+
+  .tabs {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    float: left;
+    border-bottom: 1px solid var(--medium-gray);
+    margin-bottom: 2rem;
+
+    a {
+      text-decoration: none;
+      color: var(--gray);
+      padding: 1rem;
+    }
+
+    .active {
+      color: var(--primary);
+      background-color: var(--dark-gray);
+    }
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .match {
+    margin: 2rem auto;
+    width: clamp(15rem, 20rem, 25rem);
+    padding: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--darker-gray);
+    font-size: 0.8rem;
+    color: var(--gray);
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,
+        100%, 0.075),
+      /* shadow ring 👇 */
+      0 0 0 1px hsla(0, 0%, 0%, 0.05),
+      /* multiple soft shadows 👇 */
+      0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+      0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+      0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      color: var(--secondary);
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      color: var(--white);
+
+      font-size: 1rem;
+      font-weight: 400;
+
+      .name {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .logo {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    tr td:first-child,
+    tr th:first-child {
+      text-align: left;
+    }
+
+    th {
+      color: var(--gray);
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    tr {
+      border-bottom: 1px solid var(--dark-gray);
+    }
+
+    @include mobile {
+      .mobile {
+        display: table-header-group;
+      }
+
+      .desktop {
+        display: none;
+      }
+
+
+      margin-top: 1rem;
+
+
+      tr:nth-child(2) {
+
+        background-color: var(--dark-gray);
+      }
+    }
+
+    @include desktop {
+      tr:first-child {
+        background-color: var(--dark-gray);
+      }
+    }
+  }
+
+  .bating {
+    margin-top: 2rem;
+    font-size: 1rem;
+
+    h3 {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+    }
+
+  }
+
+  .bowling {
+    margin-top: 2rem;
+    font-size: 1rem;
+
+    h3 {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+    }
+  }
+
+  .match-info {
+    margin: 2rem;
+    margin-top: 3rem;
+    border-radius: 0.5rem;
+
+    h3 {
+      padding-left: 1rem;
+      padding-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+
+    color: var(--white);
+    border: 1px solid var(--dark-gray);
+
+    .entry {
+      border-bottom: 1px solid var(--dark-gray);
+
+      div:first-child {
+        color: var(--gray);
+        width: 30%;
+      }
+
+      td,
+      th {
+        text-align: left;
+      }
+
+      background-color: transparent;
+    }
+  }
+
+}

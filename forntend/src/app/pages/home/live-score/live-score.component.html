@@ -1,0 +1,93 @@
+<div class="livescore">
+  <div class="tabs">
+    <a [routerLink]="['/live-score', liveScore.id]" class="tab active">
+      <span>Live Score</span>
+    </a>
+    <a [routerLink]="['/scorecard', liveScore.id, 'inning1']" class="tab">
+      <span>Inning 1</span>
+    </a>
+    <a [routerLink]="['/scorecard', liveScore.id, 'inning2']" class="tab">
+      <span>Inning 2</span>
+    </a>
+  </div>
+  <div class="match">
+    <div class="match-header">
+      <span>{{liveScore.result}}</span>
+    </div>
+    <div class="team" *ngFor="let team of liveScore.teams">
+      <div class="name">
+        <img [src]="team.flag" alt="team.name">
+        <span>{{ team.name }}</span>
+      </div>
+      <div class="score">{{team.score}}</div>
+    </div>
+  </div>
+  <div *ngIf="liveScore.batting.length" class="bating">
+    <h3>Batting</h3>
+    <table>
+      <tr class="header desktop">
+        <th>Batsman</th>
+        <th>Runs</th>
+        <th>Balls</th>
+        <th>4s</th>
+        <th>6s</th>
+        <th>SR</th>
+      </tr>
+
+      <tr class="header mobile">
+        <th>Batsman</th>
+        <th>R</th>
+        <th>B</th>
+        <th>4</th>
+        <th>6</th>
+        <th>SR</th>
+      </tr>
+
+      <tr *ngFor="let batsman of liveScore.batting">
+        <td>{{batsman.name}}</td>
+        <td>{{batsman.runs}}</td>
+        <td>{{batsman.balls}}</td>
+        <td>{{batsman.fours}}</td>
+        <td>{{batsman.sixes}}</td>
+        <td>{{batsman.sr}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="liveScore.bowling.length" class="bating bowling">
+    <h3>Bowling</h3>
+    <table>
+      <tr class="header desktop">
+        <th>Bowler</th>
+        <th>Overs</th>
+        <th>Runs</th>
+        <th>Wickets</th>
+        <th>Economy</th>
+      </tr>
+      <tr class="header mobile">
+        <th>Bowler</th>
+        <th>O</th>
+        <th>R</th>
+        <th>W</th>
+        <th>E</th>
+      </tr>
+      <tr class="card" *ngFor="let bowler of liveScore.bowling">
+        <td>{{bowler.name}}</td>
+        <td>{{bowler.over}}</td>
+        <td>{{bowler.run}}</td>
+        <td>{{bowler.wicket}}</td>
+        <td>{{bowler.eco}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="match-info">
+    <h3>Match Info</h3>
+    <table>
+      <tr *ngFor="let item of matchInfo" class="entry">
+        <th>{{item.name}}</th>
+        <td>{{item.value}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="points-table">
+  <table>
+    <tr class="header desktop">
+      <th>Rank</th>
+      <th>Team</th>
+      <th>Matches</th>
+      <th>Won</th>
+      <th>Lost</th>
+      <th>NR</th>
+      <th>Points</th>
+      <th>NRR</th>
+    </tr>
+    <tr class="header mobile">
+      <th>R</th>
+      <th>T</th>
+      <th>M</th>
+      <th>W</th>
+      <th>L</th>
+      <th>NR</th>
+      <th>P</th>
+      <th>NRR</th>
+    </tr>
+    <tr class="card" *ngFor="let team of pointTable">
+      <td>{{team.rank}}</td>
+      <td>
+        <img [src]="team.flag" alt="team.name" class="desktop">
+        {{team.team}}
+      </td>
+      <td>{{team.matches}}</td>
+      <td>{{team.win}}</td>
+      <td>{{team.lose}}</td>
+      <td>{{team.nr}}</td>
+      <td>{{team.point}}</td>
+      <td>{{team.nrr}}</td>
+    </tr>
+  </table>
+</div>>
